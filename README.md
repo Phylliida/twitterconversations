@@ -8,9 +8,14 @@ Example Usage:
 
 ```python
 from twitterconversations import twitterconversations
+
 getter = twitterconversations.TwitterConversations(consumer_key, consumer_secret, access_token_key, access_token_secret)
+
 tweets = getter.getStatuses(100)
+
 replies = getter.getReplies(tweets, 10) # Goes up the reply chain a maximum of 10 times, so any conversation you have will be 10 tweets or less
+
 replies.sort(key=lambda x: len(x)) # sort the reply chains so the longest ones are first
+
 # now replies[0] will be an array of tweets, where replies[0][i] has replies[0][i+1] as a response
 ```
