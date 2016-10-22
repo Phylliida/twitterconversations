@@ -290,13 +290,10 @@ class _StreamingIterable(object):
                   yield item
             except (ConnectionError, ProtocolError, ReadTimeout, ReadTimeoutError, 
                     SSLError, ssl.SSLError, socket.error) as e:
-                print "issues"
-                continue
-                raise TwitterConnectionError(e)
+                print str(TwitterConnectionError(e))
+                raise StopIteration
             except AttributeError:
                 # inform iterator to exit when client closes connection
-                print "issues"
-                continue
                 raise StopIteration
 
     def __iter__(self):
