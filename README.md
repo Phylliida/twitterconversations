@@ -11,7 +11,7 @@ from twitterconversations import twitterconversations
 
 getter = twitterconversations.TwitterConversations(consumer_key, consumer_secret, access_token_key, access_token_secret)
 
-tweets = getter.getStatuses(100)
+tweets = getter.getStatuses(100) # If this doesn't print anything after about 10 seconds (it should print 1, then 2, then 3, then ...) kill it and run it again
 
 replies = getter.getReplies(tweets, 10) # Goes up the reply chain a maximum of 10 times, so any conversation you have will be 10 tweets or less
 
